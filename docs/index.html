@@ -15,7 +15,7 @@ function convertToStatement(textToConvert){
     var arr2 = new Array();
     for(i=1;i < arr.length; i++){
     if (arr[i].replace(/\r?\n/g,"").length ==0) break; 
-        arr2[i] = 'CASE ' + first_row  + ' WHEN ' + arr[i] + ' THEN 1 ELSE 2 END,'
+        arr2[i] = 'CASE ' + first_row  + ' WHEN ' +"'" + arr[i] + "'" + ' THEN 1 ELSE 2 END,'
     }
     convertedText = 'ORDER BY'
     convertedText += arr2.join('\n');
@@ -27,16 +27,16 @@ function convertToStatement(textToConvert){
 }
 
 </script>
-
+<link rel="stylesheet" href="style.css">
 <body>
 <div id="input_area">
-<textarea id="input_text"></textarea>
+<textarea id="input_text" class="input_area"></textarea>
 </div>
 <div id="ui_area">
 <input type="button" name="generate" value="generate" onClick="generate()"></button>
 </div>
 <div id="output_area">
-<textarea id="output_text"></textarea>
+<textarea id="output_text" class="input_area"></textarea>
 </div>
 </body>
 
