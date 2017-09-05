@@ -1,0 +1,44 @@
+<html>
+<script language="javascript">
+function generate(){
+    var inputValue = document.getElementById('input_text').value;
+ 
+    var outputText= document.getElementById('output_text');
+    outputText.value = convertToStatement(inputValue);
+}
+function convertToStatement(textToConvert){
+    var convertedText;
+    //do something
+    
+    var arr = textToConvert.split(/\r\n|\r|\n/);
+    var first_row = arr[0]
+    var arr2 = new Array();
+    for(i=1;i < arr.length; i++){
+    if (arr[i].replace(/\r?\n/g,"").length ==0) break; 
+        arr2[i] = 'CASE ' + first_row  + ' WHEN ' + arr[i] + ' THEN 1 ELSE 2 END,'
+    }
+    convertedText = 'ORDER BY'
+    convertedText += arr2.join('\n');
+    convertedText += first_row
+    
+    return convertedText;
+    
+
+}
+
+</script>
+
+<body>
+<div id="input_area">
+<textarea id="input_text"></textarea>
+</div>
+<div id="ui_area">
+<input type="button" name="generate" value="generate" onClick="generate()"></button>
+</div>
+<div id="output_area">
+<textarea id="output_text"></textarea>
+</div>
+</body>
+
+</html>
+
