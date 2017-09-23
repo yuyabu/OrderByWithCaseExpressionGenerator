@@ -1,4 +1,4 @@
-https://yuyabu.github.io/OrderByWithCaseStatementGenerator/
+https://yuyabu.github.io/OrderByWithCaseExpressionGenerator/
 
 SQLのORDER BY句はcase式を組み入れて任意の並び替えを実現することが出来ます。
 EXCELなどで
